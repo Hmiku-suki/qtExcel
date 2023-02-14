@@ -4,6 +4,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 import pandas as pd
 import numpy as np
+from combo_box import ExtendedComboBox
 
 
 def translate_ui(MainWindow):
@@ -15,6 +16,7 @@ class Ui_MainWindow(QMainWindow):
 
     def __init__(self):
         super(QtWidgets.QMainWindow, self).__init__()
+        self.comboBox = None
         self.pushButton = None
         self.centralWidget = None
         self.tableWidget = None
@@ -41,6 +43,12 @@ class Ui_MainWindow(QMainWindow):
         self.pushButton.setGeometry(QtCore.QRect(150, 50, 120, 50))
         self.pushButton.setObjectName("pushButton")
         self.pushButton.setText("打开")
+
+        self.comboBox = ExtendedComboBox(self.centralWidget)
+        self.comboBox.setGeometry(QtCore.QRect(350, 50, 400, 50))
+        self.comboBox.setObjectName("comboBox")
+        l = ["", "公司1", "2asd", "3ewqr", "3ewqc", "2wqpu", "1kjijhm", "4kjndw", "5ioijb", "6eolv", "11ofmsw"]
+        self.comboBox.addItems(l)
         MainWindow.setCentralWidget(self.centralWidget)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
